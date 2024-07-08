@@ -4,23 +4,33 @@ import { Star, ShoppingCart, Menu, Search, User, Facebook, Instagram, Twitter } 
 const supplements = [
   {
     id: 1,
-    name: 'Pro Whey Protein',
-    flavor: 'Chocolate',
-    price: 29.99,
+    name: '90% - WHEY PROTEIN ISOLATE',
+    flavor: 'Rich Choco',
+    price: 7490,
     image: './assets/choc1.png',
     rating: 4.5,
     servings: 30,
-    benefits: ['Muscle Growth', 'Recovery']
+    benefits: ['Muscle Growth']
   },
   {
     id: 2,
-    name: 'BCAA Energy',
-    flavor: 'Fruit Punch',
-    price: 24.99,
+    name: '80% - WHEY PROTEIN ISOLATE',
+    flavor: 'Chocolate Fountain',
+    price: 5490,
     image: '/api/placeholder/300/300',
     rating: 4.2,
     servings: 40,
-    benefits: ['Endurance', 'Hydration']
+    benefits: ['Recovery']
+  },
+  {
+    id: 3,
+    name: 'EEA',
+    flavor: 'Iced Tea',
+    price: 2790,
+    image: '/api/placeholder/300/300',
+    rating: 4.7,
+    servings: 40,
+    benefits: ['Endurance']
   }
   // Add more supplement objects as needed
 ];
@@ -28,20 +38,20 @@ const supplements = [
 const testimonials = [
   {
     id: 1,
-    name: 'John D.',
-    text: "The Pro Whey Protein has been a game-changer for my workouts. I've seen significant muscle gains!",
+    name: 'Sanket D.',
+    text: "The 90% Whey Protein has been a game-changer for my workouts. I've seen significant muscle gains!",
     rating: 5
   },
   {
     id: 2,
-    name: 'Sarah M.',
-    text: 'BCAA Energy helps me push through tough workouts. The fruit punch flavor is delicious!',
+    name: 'Sakshi',
+    text: 'EAA Energy helps me push through tough workouts. The iced tea flavor is delicious!',
     rating: 4
   },
   {
     id: 3,
-    name: 'Mike R.',
-    text: "I've tried many supplements, but GymSupps products are by far the best quality. Highly recommended!",
+    name: 'Tanmay',
+    text: "I've tried many supplements, but TTS products are by far the best quality. Highly recommended! Love the Choco flavor!",
     rating: 5
   }
 ];
@@ -73,8 +83,8 @@ const SupplementCard = ({ supplement }) => (
     <img src={supplement.image} alt={supplement.name} className="w-full h-48 object-cover" />
     <div className="p-4">
       <h2 className="text-xl font-bold mb-2">{supplement.name}</h2>
-      <p className="text-gray-600 mb-2">Flavor: {supplement.flavor}</p>
-      <p className="text-green-600 font-bold text-lg mb-2">${supplement.price.toFixed(2)}</p>
+      <p className="text-gray-600 mb-2">{supplement.flavor} Flavor</p>
+      <p className="text-green-600 font-bold text-lg mb-2">Rs. {supplement.price.toFixed(2)}</p>
       <div className="flex items-center mb-2">
         <Star className="text-yellow-400 w-5 h-5" />
         <span className="ml-1">{supplement.rating.toFixed(1)}</span>
@@ -175,9 +185,6 @@ const SupplementStore = () => {
               </div>
             </>
           )}
-          {/* {currentPage === 'products' && (
-            <h1 className="text-3xl font-bold mb-8 text-center">Products Page (Coming Soon)</h1>
-          )} */}
           {currentPage === 'about' && (
             <h1 className="text-3xl font-bold mb-8 text-center">About Us (Coming Soon)</h1>
           )}
@@ -186,7 +193,7 @@ const SupplementStore = () => {
           )}
         </div>
       </main>
-      <h1 className="text-3xl font-bold mb-8 text-center">Customer Testimonials</h1>
+      <h1 className="text-3xl font-bold mb-8 text-center">Testimonials</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 md:px-8 lg:px-12 pb-12">
         {testimonials.map((testimonial) => (
           <TestimonialCard key={testimonial.id} testimonial={testimonial} />

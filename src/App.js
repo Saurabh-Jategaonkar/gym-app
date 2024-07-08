@@ -7,7 +7,7 @@ const supplements = [
     name: 'Pro Whey Protein',
     flavor: 'Chocolate',
     price: 29.99,
-    image: '/api/placeholder/300/300',
+    image: './assets/choc1.png',
     rating: 4.5,
     servings: 30,
     benefits: ['Muscle Growth', 'Recovery']
@@ -51,11 +51,11 @@ const NavBar = ({ setCurrentPage }) => (
     <div className="container mx-auto flex justify-between items-center">
       <div className="flex items-center">
         <Menu className="w-6 h-6 mr-4 cursor-pointer" />
-        <h1 className="text-xl font-bold">GymSupps</h1>
+        <h1 className="text-xl font-bold">Tone Tribe Supplements</h1>
       </div>
       <div className="hidden md:flex space-x-4">
         <a href="#" onClick={() => setCurrentPage('home')} className="hover:text-blue-200">Home</a>
-        <a href="#" onClick={() => setCurrentPage('products')} className="hover:text-blue-200">Products</a>
+        {/* <a href="#" onClick={() => setCurrentPage('products')} className="hover:text-blue-200">Products</a> */}
         <a href="#" onClick={() => setCurrentPage('about')} className="hover:text-blue-200">About</a>
         <a href="#" onClick={() => setCurrentPage('contact')} className="hover:text-blue-200">Contact</a>
       </div>
@@ -167,7 +167,7 @@ const SupplementStore = () => {
         <div className="container mx-auto px-4 py-8">
           {currentPage === 'home' && (
             <>
-              <h1 className="text-3xl font-bold mb-8 text-center">Gym Supplements</h1>
+              <h1 className="text-3xl font-bold mb-8 text-center">Products</h1>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 {supplements.map((supplement) => (
                   <SupplementCard key={supplement.id} supplement={supplement} />
@@ -175,9 +175,9 @@ const SupplementStore = () => {
               </div>
             </>
           )}
-          {currentPage === 'products' && (
+          {/* {currentPage === 'products' && (
             <h1 className="text-3xl font-bold mb-8 text-center">Products Page (Coming Soon)</h1>
-          )}
+          )} */}
           {currentPage === 'about' && (
             <h1 className="text-3xl font-bold mb-8 text-center">About Us (Coming Soon)</h1>
           )}
